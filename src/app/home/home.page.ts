@@ -1,12 +1,19 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular';
+import { Tarea } from '../interfaces/tarea';
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent],
+  // ...
 })
 export class HomePage {
+
+  // Esta es la propiedad que realmente usaremos (sin let)
+  listaDeTareas: Tarea[] = [
+    { id: 1, titulo: "Comprar el pan", completada: true },
+    { id: 2, titulo: "Estudiar componentes de Angular", completada: false },
+    { id: 3, titulo: "Hacer el reto de la UT2", completada: false }
+  ];
+
   constructor() {}
+  
 }
