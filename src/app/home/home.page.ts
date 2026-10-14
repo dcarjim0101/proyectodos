@@ -1,13 +1,26 @@
 import { Component } from '@angular/core';
-import { Tarea } from '../interfaces/tarea';
+import { IonicModule } from '@ionic/angular';
+
+// Imports de nuestra aplicación
+import { Tarea } from '../interfaces/tarea'; // Nuestra interfaz de datos
+import { TaskItemComponent } from '../components/task-item/task-item.component'; // El componente hijo
+import { CommonModule } from '@angular/common'; // Módulo necesario para usar *ngIf y *ngFor
 
 @Component({
   selector: 'app-home',
-  // ...
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
+  // Al ser un componente standalone, debemos importar aquí todo lo que usemos en la plantilla
+  imports: [
+    IonicModule, // Componentes de Ionic
+    TaskItemComponent, // Nuestro componente hijo
+    CommonModule // El módulo para las directivas
+  ],
 })
 export class HomePage {
 
-  // Esta es la propiedad que realmente usaremos (sin let)
+  // Esta es la lista de datos que mostraremos en la vista.
+  // Es un array de objetos que deben cumplir la estructura de la interfaz 'Tarea'.
   listaDeTareas: Tarea[] = [
     { id: 1, titulo: "Comprar el pan", completada: true },
     { id: 2, titulo: "Estudiar componentes de Angular", completada: false },
@@ -15,5 +28,4 @@ export class HomePage {
   ];
 
   constructor() {}
-  
 }
