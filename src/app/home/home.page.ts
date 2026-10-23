@@ -23,9 +23,9 @@ export class HomePage {
   // Esta es la lista de datos que mostraremos en la vista.
   // Es un array de objetos que deben cumplir la estructura de la interfaz 'Tarea'.
   listaDeTareas: Tarea[] = [
-    { id: 1, titulo: "Comprar el pan", completada: true },
-    { id: 2, titulo: "Estudiar componentes de Angular", completada: false },
-    { id: 3, titulo: "Hacer el reto de la UT2", completada: false }
+    { id: 1, titulo: "Manzanas", completada: true },
+    { id: 2, titulo: "Platanos", completada: false },
+    { id: 3, titulo: "Cerezas", completada: false }
   ];
 
   constructor() {}
