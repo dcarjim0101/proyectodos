@@ -25,6 +25,8 @@ export class HomePage {
   listaDeTareas: Tarea[] = [
     { id: 1, titulo: "Manzanas", completada: true },
     { id: 2, titulo: "Platanos", completada: false },
+    { id: 3, titulo: "Arándanos", completada: false },
+    { id: 3, titulo: "Cocos", completada: false },
     { id: 3, titulo: "Cerezas", completada: false }
   ];
 
