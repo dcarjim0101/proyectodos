@@ -1,5 +1,6 @@
+// Imports básicos de Angular y Ionic
 import { Component } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular';
 
 // Imports de nuestra aplicación
 import { Tarea } from '../interfaces/tarea'; // Nuestra interfaz de datos
@@ -12,7 +13,7 @@ import { CommonModule } from '@angular/common'; // Módulo necesario para usar *
   styleUrls: ['home.page.scss'],
   // Al ser un componente standalone, debemos importar aquí todo lo que usemos en la plantilla
   imports: [
-    IonicModule, // Componentes de Ionic
+    IonHeader, IonToolbar, IonTitle, IonContent, // Componentes de Ionic
     TaskItemComponent, // Nuestro componente hijo
     CommonModule // El módulo para las directivas
   ],
