@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular';
 
 // Imports de nuestra aplicación
-import { Producto } from '../interfaces/tarea'; // Nuestra interfaz de datos
+import { Productos } from '../interfaces/productos'; // Nuestra interfaz de datos
 import { TaskItemComponent } from '../components/task-item/task-item.component'; // El componente hijo
 import { CommonModule } from '@angular/common'; // Módulo necesario para usar *ngIf y *ngFor
 
@@ -22,7 +22,7 @@ export class HomePage {
 
   // Esta es la lista de datos que mostraremos en la vista.
   // Es un array de objetos que deben cumplir la estructura de la interfaz 'Tarea'.
-  listaDeProductos: Producto[] = [
+  listaDeProductos: Productos[] = [
     { id: 1, titulo: "Manzanas", completada: true },
     { id: 2, titulo: "Platanos", completada: false },
     { id: 3, titulo: "Arándanos", completada: false },
