@@ -1,5 +1,8 @@
 export interface Productos {
-    id: number;
+  id: number;
   titulo: string;
   completada: boolean;
+  emoji: string;
+  descripcion: string;
+  precio: number;
 }

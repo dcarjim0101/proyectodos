@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Productos } from '../../interfaces/productos';
-// 1. Importamos los componentes de Ionic que usaremos en el HTML
-import { IonCard, IonItem, IonCheckbox, IonLabel, IonButton } from '@ionic/angular';
-// 2. Importamos CommonModule para poder usar directivas como [class.tachado]
+import { IonCard, IonItem, IonCheckbox, IonLabel } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,16 +8,9 @@ import { CommonModule } from '@angular/common';
   templateUrl: './task-item.component.html',
   styleUrls: ['./task-item.component.scss'],
   standalone: true,
-  // 3. Registramos los módulos y componentes en el array 'imports'
-  imports: [CommonModule, IonCard, IonItem, IonCheckbox, IonLabel, IonButton]
+  imports: [CommonModule, IonCard, IonItem, IonCheckbox, IonLabel]
 })
 export class TaskItemComponent {
 
   @Input() tarea!: Productos;
-
-  constructor() { }
-
-  mostrarDetalles() {
-    console.log('Datos de la tarea:', this.tarea);
-  }
 }

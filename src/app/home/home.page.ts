@@ -1,34 +1,33 @@
-// Imports básicos de Angular y Ionic
 import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular';
-
-// Imports de nuestra aplicación
-import { Productos } from '../interfaces/productos'; // Nuestra interfaz de datos
-import { TaskItemComponent } from '../components/task-item/task-item.component'; // El componente hijo
-import { CommonModule } from '@angular/common'; // Módulo necesario para usar *ngIf y *ngFor
+import { CommonModule } from '@angular/common';
+import { Productos } from '../interfaces/productos';
+import { TaskItemComponent } from '../components/task-item/task-item.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  // Al ser un componente standalone, debemos importar aquí todo lo que usemos en la plantilla
   imports: [
-    IonHeader, IonToolbar, IonTitle, IonContent, // Componentes de Ionic
-    TaskItemComponent, // Nuestro componente hijo
-    CommonModule // El módulo para las directivas
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    TaskItemComponent,
+    CommonModule
   ],
 })
 export class HomePage {
-
-  // Esta es la lista de datos que mostraremos en la vista.
-  // Es un array de objetos que deben cumplir la estructura de la interfaz 'Tarea'.
   listaDeProductos: Productos[] = [
-    { id: 1, titulo: "Manzanas", completada: true },
-    { id: 2, titulo: "Platanos", completada: false },
-    { id: 3, titulo: "Arándanos", completada: false },
-    { id: 3, titulo: "Cocos", completada: false },
-    { id: 3, titulo: "Cerezas", completada: false }
+    { id: 1, titulo: 'Manzanas', completada: false, emoji: '🍎', descripcion: 'Crujientes y jugosas', precio: 2.49 },
+    { id: 2, titulo: 'Plátanos', completada: false, emoji: '🍌', descripcion: 'Dulces y llenos de energía', precio: 1.79 },
+    { id: 3, titulo: 'Arándanos', completada: false, emoji: '🫐', descripcion: 'Pequeños y deliciosos', precio: 3.25 },
+    { id: 4, titulo: 'Cocos', completada: false, emoji: '🥥', descripcion: 'Un toque tropical', precio: 2.99 },
+    { id: 5, titulo: 'Cerezas', completada: false, emoji: '🍒', descripcion: 'Dulces de temporada', precio: 4.50 },
+    { id: 6, titulo: 'Naranjas', completada: false, emoji: '🍊', descripcion: 'Jugosas y recién recogidas', precio: 2.15 }
   ];
 
-  constructor() {}
+  get productosSeleccionados(): number {
+    return this.listaDeProductos.filter((producto) => producto.completada).length;
+  }
 }

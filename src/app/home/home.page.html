@@ -1,33 +1,40 @@
-<!-- La cabecera principal, visible en la parte superior de la pantalla -->
-<ion-header [translucent]="true">
+<ion-header class="store-header">
   <ion-toolbar>
-    <ion-title>
-      Lista de Tareas
-    </ion-title>
+    <ion-title>La Frutería</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <!-- Esta segunda cabecera crea el efecto de título grande que se encoge al hacer scroll -->
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Lista de Tareas</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="store-content">
+  <main class="store-page">
+    <section class="welcome">
+      <p class="eyebrow">FRESCO, NATURAL Y DE TEMPORADA</p>
+      <h1>Un poco de<br /><span>fruta feliz.</span></h1>
+      <p class="intro">Elige tus favoritas y prepara algo delicioso.</p>
+    </section>
 
-  <!-- Directiva *ngIf: este div solo existirá en el DOM si la condición es verdadera -->
-  <div *ngIf="listaDeProductos.length === 0" class="mensaje-vacio">
-    <p>¡Enhorabuena!</p>
-    <p>No tienes tareas pendientes.</p>
-  </div>
+    <section class="products-section" aria-labelledby="products-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">DIRECTO DEL MERCADO</p>
+          <h2 id="products-title">Fruta fresca</h2>
+        </div>
+        <span class="selection-count" aria-live="polite">
+          {{ productosSeleccionados }} seleccionada{{ productosSeleccionados === 1 ? '' : 's' }}
+        </span>
+      </div>
 
-  <!-- 
-    Directiva *ngFor: este es el bucle. 
-    - Por cada objeto 'tarea' que haya en el array 'listaDeTareas'...
-    - ...Angular creará una instancia de nuestro componente <app-task-item>.
-  -->
-  <app-task-item
-    *ngFor="let Tarea of listaDeProductos"
-    [tarea]="Tarea"> <!-- Property Binding: le pasamos el objeto 'tarea' actual al @Input del componente hijo -->
-  </app-task-item>
+      <div class="product-list" *ngIf="listaDeProductos.length > 0; else emptyList">
+        <app-task-item
+          *ngFor="let producto of listaDeProductos"
+          [tarea]="producto">
+        </app-task-item>
+      </div>
+
+      <ng-template #emptyList>
+        <p class="empty-state">No hay productos disponibles por ahora.</p>
+      </ng-template>
+    </section>
+
+    <p class="footer-note">Con cariño, de nuestra huerta a tu mesa 🍃</p>
+  </main>
 </ion-content>
