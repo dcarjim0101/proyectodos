@@ -22,7 +22,7 @@ export class HomePage {
 
   // Esta es la lista de datos que mostraremos en la vista.
   // Es un array de objetos que deben cumplir la estructura de la interfaz 'Tarea'.
-  listaDeTareas: Tarea[] = [
+  listaDeProductos: Tarea[] = [
     { id: 1, titulo: "Manzanas", completada: true },
     { id: 2, titulo: "Platanos", completada: false },
     { id: 3, titulo: "Arándanos", completada: false },

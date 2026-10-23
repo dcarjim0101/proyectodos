@@ -16,7 +16,7 @@
   </ion-header>
 
   <!-- Directiva *ngIf: este div solo existirá en el DOM si la condición es verdadera -->
-  <div *ngIf="listaDeTareas.length === 0" class="mensaje-vacio">
+  <div *ngIf="listaDeProductos.length === 0" class="mensaje-vacio">
     <p>¡Enhorabuena!</p>
     <p>No tienes tareas pendientes.</p>
   </div>
@@ -27,7 +27,7 @@
     - ...Angular creará una instancia de nuestro componente <app-task-item>.
   -->
   <app-task-item
-    *ngFor="let tarea of listaDeTareas"
-    [tarea]="tarea"> <!-- Property Binding: le pasamos el objeto 'tarea' actual al @Input del componente hijo -->
+    *ngFor="let Tarea of listaDeProductos"
+    [tarea]="Tarea"> <!-- Property Binding: le pasamos el objeto 'tarea' actual al @Input del componente hijo -->
   </app-task-item>
 </ion-content>
