@@ -1,11 +1,9 @@
 <ion-card [class.selected]="tarea.completada">
-  <ion-item lines="none">
-    <div class="fruit-icon" slot="start" aria-hidden="true">{{ tarea.emoji }}</div>
-    <ion-label>
+  <div class="product-card">
+    <div class="fruit-details">
       <h2>{{ tarea.titulo }}</h2>
-      <p>{{ tarea.descripcion }}</p>
-    </ion-label>
-    <div class="product-actions" slot="end">
+    </div>
+    <div class="product-actions">
       <span class="price">{{ tarea.precio | currency:'EUR':'symbol':'1.2-2' }}</span>
       <ion-checkbox
         [checked]="tarea.completada"
@@ -13,5 +11,5 @@
         (ionChange)="tarea.completada = !tarea.completada">
       </ion-checkbox>
     </div>
-  </ion-item>
+  </div>
 </ion-card>
