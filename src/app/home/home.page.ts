@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { IonButtons, IonIcon, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonButton, IonItem } from '@ionic/angular';
+import { IonButtons, IonIcon, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonButton, IonItem, IonAvatar, IonImg, IonLabel, IonThumbnail } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { settingsOutline } from 'ionicons/icons';
 import { TaskItemComponent } from '../components/task-item/task-item.component';
@@ -22,7 +22,11 @@ import { TaskItemComponent } from '../components/task-item/task-item.component';
     IonCol,
     IonButton,
     TaskItemComponent,
-    IonItem
+    IonItem,
+    IonAvatar,
+    IonImg,
+    IonLabel,
+    IonThumbnail
 ]
 })
 export class HomePage {

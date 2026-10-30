@@ -66,6 +66,28 @@
 
       <ion-item class="card-sombreada">tarjeta sombreada</ion-item>
 
+      // para imagenes de perfil
+      <ion-item>
+      <ion-avatar slot="start">
+        <ion-img src="https://i.pravatar.cc/150?u=a042581f4e29026024d"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        <h3>Nombre de Usuario</h3>
+        <p>Última conexión: hace 5 min</p>
+      </ion-label>
+      </ion-item>
+
+      // miniaturas en listas
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-img src="https://placehold.co/100x100/3dc2ff/ffffff?text=Producto"></ion-img>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>Nombre del Producto</h3>
+          <p>Categoría del producto</p>
+        </ion-label>
+      </ion-item>
+
       <ng-template #emptyList>
         <p class="empty-state">No hay productos disponibles por ahora</p>
       </ng-template>
