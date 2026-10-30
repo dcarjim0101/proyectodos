@@ -1,33 +1,34 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular';
-import { CommonModule } from '@angular/common';
-import { Productos } from '../interfaces/productos';
+import { RouterLink } from '@angular/router';
+import { IonButtons, IonIcon, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonButton, IonItem } from '@ionic/angular';
+import { addIcons } from 'ionicons';
+import { settingsOutline } from 'ionicons/icons';
 import { TaskItemComponent } from '../components/task-item/task-item.component';
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  templateUrl: './home.page.html',
+  standalone: true,
   imports: [
+    RouterLink,
+    IonButtons,
+    IonIcon,
     IonHeader,
     IonToolbar,
     IonTitle,
     IonContent,
+    IonGrid,
+    IonRow,
+    IonCol,
+    IonButton,
     TaskItemComponent,
-    CommonModule
-  ],
+    IonItem
+]
 })
 export class HomePage {
-  listaDeProductos: Productos[] = [
-    { id: 1, titulo: 'Manzanas', completada: false, precio: 2.49 },
-    { id: 2, titulo: 'Plátanos', completada: false, precio: 1.79 },
-    { id: 3, titulo: 'Arándanos', completada: false, precio: 3.25 },
-    { id: 4, titulo: 'Cocos', completada: false, precio: 2.99 },
-    { id: 5, titulo: 'Cerezas', completada: false, precio: 4.50 },
-    { id: 6, titulo: 'Naranjas', completada: false, precio: 2.15 }
-  ];
-
-  get productosSeleccionados(): number {
-    return this.listaDeProductos.filter((producto) => producto.completada).length;
+  constructor() {
+    // Registramos el icono de ajustes que vamos a usar en la vista
+    addIcons({ settingsOutline });
   }
+  // ...
 }

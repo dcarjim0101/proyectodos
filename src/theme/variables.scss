@@ -1,2 +1,43 @@
 // For information on how to create your own theme, please refer to:
 // https://ionicframework.com/docs/theming/
+
+
+:root {
+  --ion-color-primary: #f48c06;
+  --ion-color-primary-rgb: 244, 140, 6;
+  --ion-color-primary-contrast: #000000;
+  --ion-color-primary-contrast-rgb: 0, 0, 0;
+  --ion-color-primary-shade: #d77b05;
+  --ion-color-primary-tint: #f5981f;
+}
+
+:root {
+  --ion-background-color: #f4f5f8;
+  --ion-text-color: #222428;
+}
+
+@mixin dark-theme-variables {
+  --ion-color-primary: #428cff;
+  --ion-color-primary-rgb: 66,140,255;
+  --ion-color-primary-contrast: #ffffff;
+  
+  --ion-background-color: #121212;
+  --ion-text-color: #ffffff;
+}
+
+/* 2. Aplicamos el mixin cuando el sistema operativo detecta preferencia oscura */
+@media (prefers-color-scheme: dark) {
+  body {
+    @include dark-theme-variables;
+  }
+}
+
+/* 3. Aplicamos el mixin cuando el servicio añade la clase .dark al body */
+body.dark {
+  @include dark-theme-variables;
+}
+
+:root {
+  // aplicar la fuente a toda la aplicacion
+  --ion-font-family: 'Henny Penny', cursive;
+}

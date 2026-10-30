@@ -1,6 +1,14 @@
-<ion-header class="store-header">
-  <ion-toolbar>
-    <ion-title>Frutería</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Mis Tareas</ion-title>
+    
+    <!-- El contenedor de botones debe ir fuera de ion-title -->
+    <ion-buttons slot="end">
+      <ion-button routerLink="/ajustes">
+        <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
   </ion-toolbar>
 </ion-header>
 
@@ -12,12 +20,51 @@
         
       </div>
 
-      <div class="product-list" *ngIf="listaDeProductos.length > 0; else emptyList">
-        <app-task-item
-          *ngFor="let producto of listaDeProductos"
-          [tarea]="producto">
-        </app-task-item>
-      </div>
+      <!-- Aquí empieza nuestro contenido personalizado -->
+      <ion-grid>
+        <!-- Fila 1: Imagen a la izquierda, texto a la derecha -->
+        <ion-row class="ion-align-items-center">
+          <!-- Columna 1: Ocupará la mitad del espacio disponible -->
+          <ion-col size="12" size-md="4">
+            <img src="assets/img/mi-logo.png" alt="Logo de mi aplicación">
+          </ion-col>
+          
+          <!-- Columna 2: Ocupará la otra mitad del espacio -->
+          <ion-col size="12" size-md="8">
+            <div class="ion-text-center">
+              <p>Esta es una tienda de frutas</p>
+              <ion-button>Contactar</ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row>
+          <!-- 
+            - Por cada 'tarea' en 'listaDeProductos', crea una columna (<ion-col>).
+            - En móvil (xs), cada columna ocupa 6/12 (mitad de pantalla -> 2 columnas por fila).
+            - En tablets (md), cada columna ocupa 4/12 (un tercio -> 3 columnas por fila).
+            - En escritorio (lg), cada columna ocupa 3/12 (un cuarto -> 4 columnas por fila).
+          -->
+          <ion-col *ngFor="let tarea of listaDeProductos" size="6" size-md="4" size-lg="3">
+            <!-- Dentro de cada columna, renderizamos nuestro componente de tarea -->
+            <app-task-item [tarea]="tarea"></app-task-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-button color="danger">
+        <ion-icon slot="start" name="trash"></ion-icon>
+        Eliminar
+      </ion-button>
+
+      <ion-button color="secondary">
+        <ion-icon slot="start" name="create"></ion-icon>
+        Editar
+      </ion-button>
+
+      <ion-item class="card-sombreada">tarjeta sombreada</ion-item>
 
       <ng-template #emptyList>
         <p class="empty-state">No hay productos disponibles por ahora</p>
