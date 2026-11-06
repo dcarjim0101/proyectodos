@@ -13,4 +13,10 @@ import { CommonModule } from '@angular/common';
 export class TaskItemComponent {
 
   @Input() tarea!: Productos;
+
+  constructor() { }
+
+  mostrarDetalles() {
+    console.log('Datos de la tarea:', this.tarea);
+  }
 }

@@ -5,6 +5,13 @@ import { addIcons } from 'ionicons';
 import { settingsOutline } from 'ionicons/icons';
 import { TaskItemComponent } from '../components/task-item/task-item.component';
 
+interface Tarea {
+  id: number;
+  titulo: string;
+  completada: boolean;
+  precio: number;
+}
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -30,6 +37,12 @@ import { TaskItemComponent } from '../components/task-item/task-item.component';
 ]
 })
 export class HomePage {
+  // Esta es la propiedad que realmente usaremos (sin let)
+  listaDeProductos: Tarea[] = [
+    { id: 1, titulo: "manzanas", completada: true, precio: 5 },
+    { id: 2, titulo: "arandanos", completada: true, precio: 2 },
+    { id: 3, titulo: "naranjas", completada: false, precio: 4 }
+  ];
   constructor() {
     // Registramos el icono de ajustes que vamos a usar en la vista
     addIcons({ settingsOutline });
