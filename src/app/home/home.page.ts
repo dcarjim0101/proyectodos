@@ -33,11 +33,12 @@ export class HomePage {
     { id: 1, titulo: 'manzanas', completada: true, precio: 5 },
     { id: 2, titulo: 'arandanos', completada: true, precio: 2 },
     { id: 3, titulo: 'naranjas', completada: false, precio: 4 },
-    { id: 4, titulo: 'albaricoqoues', completada: false, precio: 3.8 },
-    { id: 5, titulo: 'platanos', completada: false, precio: 1.75 },
+    { id: 4, titulo: 'albaricoques', completada: false, precio: 3.8 },
+    { id: 5, titulo: 'platanos', completada: false, precio: 3 },
     { id: 6, titulo: 'granadas', completada: true, precio: 3.8 },
-    { id: 7, titulo: 'aguacates', completada: false, precio: 8.9 },
-    { id: 8, titulo: 'kiwis', completada: true, precio: 9.5 }
+    { id: 7, titulo: 'aguacates', completada: false, precio: 9 },
+    { id: 8, titulo: 'kiwis', completada: true, precio: 9.5 },
+    { id: 9, titulo: 'peras', completada: false, precio: 6}
   ];
 
   constructor() {

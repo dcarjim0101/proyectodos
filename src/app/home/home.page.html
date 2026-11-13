@@ -29,12 +29,12 @@
       </div>
 
       <ion-grid *ngIf="listaDeProductos.length > 0; else emptyList">
-        <ion-row>
-          <ion-col *ngFor="let tarea of listaDeProductos" size="6" size-md="4" size-lg="3">
-            <app-task-item [tarea]="tarea"></app-task-item>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let tarea of listaDeProductos" size="6" size-md="4">
+          <app-task-item [tarea]="tarea"></app-task-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
       <ng-template #emptyList>
         <p class="empty-state">No hay productos disponibles por ahora</p>
