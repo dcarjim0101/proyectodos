@@ -1,88 +1,56 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
     <ion-title>Mis Tareas</ion-title>
-
-    <!-- El contenedor de botones debe ir fuera de ion-title -->
     <ion-buttons slot="end">
       <ion-button routerLink="/ajustes">
         <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="store-content">
   <main class="store-page">
+
+    <!-- Cabecera de la tienda: foto y nombre en la esquina -->
+    <section class="shop-header">
+      <img class="shop-logo" src="assets/img/mi-logo.png" alt="Foto de la tienda de frutas">
+      <div class="shop-info">
+        <h2>Frutas</h2>
+        <p>Esta es una tienda de frutas</p>
+      </div>
+      <ion-button size="small" class="shop-contact">Contactar</ion-button>
+    </section>
+
+    <!-- Productos -->
     <section class="products-section" aria-labelledby="products-title">
       <div class="section-heading">
-        <h2 id="products-title">Frutas</h2>
-        
+        <h3 id="products-title">Productos</h3>
       </div>
 
-      <ion-grid>
-        <!-- imagen a la izquierda -->
-        <ion-row class="ion-align-items-center">
-
-          <ion-col size="12" size-md="4">
-            <img src="assets/img/mi-logo.png" alt="Logo de mi aplicación">
-          </ion-col>
-          
-          <ion-col size="12" size-md="8">
-            <div class="ion-text-center">
-              <p>Esta es una tienda de frutas</p>
-              <ion-button>Contactar</ion-button>
-            </div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-
-      <ion-grid>
+      <ion-grid *ngIf="listaDeProductos.length > 0; else emptyList">
         <ion-row>
           <ion-col *ngFor="let tarea of listaDeProductos" size="6" size-md="4" size-lg="3">
-            <!-- Dentro de cada columna, renderizamos nuestro componente de tarea -->
             <app-task-item [tarea]="tarea"></app-task-item>
           </ion-col>
         </ion-row>
       </ion-grid>
 
-      <ion-button color="danger">
-        <ion-icon slot="start" name="trash"></ion-icon>
-        Eliminar
-      </ion-button>
-
-      <ion-button color="secondary">
-        <ion-icon slot="start" name="create"></ion-icon>
-        Editar
-      </ion-button>
-
-      <ion-item class="card-sombreada">tarjeta sombreada</ion-item>
-
-      <!-- para imagenes de perfil -->
-      <ion-item>
-      <ion-avatar slot="start">
-        <ion-img src="https://i.pravatar.cc/150?u=a042581f4e29026024d"></ion-img>
-      </ion-avatar>
-      <ion-label>
-        <h3>Nombre de Usuario</h3>
-        <p>ultima conexión hace 5 min</p>
-      </ion-label>
-      </ion-item>
-
-      <!-- miniaturas en listas -->
-      <ion-item>
-        <ion-thumbnail slot="start">
-          <ion-img src="https://placehold.co/100x100/3dc2ff/ffffff?text=Producto"></ion-img>
-        </ion-thumbnail>
-        <ion-label>
-          <h3>Nombre del Producto</h3>
-          <p>Categoría del producto</p>
-        </ion-label>
-      </ion-item>
-
       <ng-template #emptyList>
         <p class="empty-state">No hay productos disponibles por ahora</p>
       </ng-template>
+
+      <div class="actions">
+        <ion-button color="danger">
+          <ion-icon slot="start" name="trash"></ion-icon>
+          Eliminar
+        </ion-button>
+        <ion-button color="secondary">
+          <ion-icon slot="start" name="create"></ion-icon>
+          Editar
+        </ion-button>
+      </div>
     </section>
+
   </main>
 </ion-content>
