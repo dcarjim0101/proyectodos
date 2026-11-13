@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TaskItemComponent } from './task-item.component';
 
+declare const beforeEach: (fn: () => void) => void;
+
 describe('TaskItemComponent', () => {
   let component: TaskItemComponent;
   let fixture: ComponentFixture<TaskItemComponent>;
@@ -13,7 +15,6 @@ describe('TaskItemComponent', () => {
       id: 1,
       titulo: 'Manzanas',
       completada: false,
-      descripcion: 'Crujientes y jugosas',
       precio: 2.49
     };
     fixture.detectChanges();
