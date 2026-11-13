@@ -13,7 +13,6 @@ describe('TaskItemComponent', () => {
       id: 1,
       titulo: 'Manzanas',
       completada: false,
-      emoji: '🍎',
       descripcion: 'Crujientes y jugosas',
       precio: 2.49
     };
