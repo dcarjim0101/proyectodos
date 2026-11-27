@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { IonButtons, IonIcon, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonButton, IonInput, IonList, IonItem, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, ToastController, AlertController } from '@ionic/angular';
+import { IonButtons, IonIcon, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonButton, IonInput, IonList, IonItem, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, ToastController, AlertController, ModalController } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { settingsOutline, trash, create } from 'ionicons/icons';
 import { TaskItemComponent } from '../components/task-item/task-item.component';
 import { Productos } from '../interfaces/productos';
+import { DetalleModalComponent } from '../components/detalle-modal/detalle-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -34,6 +35,7 @@ import { Productos } from '../interfaces/productos';
     IonCardSubtitle
 ]
 })
+
 export class HomePage {
   agregarProducto() {
     throw new Error('Method not implemented.');
@@ -64,7 +66,7 @@ export class HomePage {
   constructor(
     private toastController: ToastController,
     private alertController: AlertController,
-    // private modalController: ModalController
+    private modalController: ModalController
   ) {
     addIcons({ settingsOutline, trash, create });
   }
@@ -139,5 +141,23 @@ export class HomePage {
     await alert.present();
   }
 
-  
+  async abrirModal() {
+    const modal = await this.modalController.create({
+      component: DetalleModalComponent,
+      // Pasamos datos al modal
+      componentProps: {
+        mensaje: 'Este mensaje viene de la Home'
+      }
+    });
+
+    await modal.present();
+
+    // Esperamos a que se cierre para leer la respuesta
+    const { data, role } = await modal.onDidDismiss();
+
+    if (role === 'confirm') {
+      console.log('Modal cerrado. Datos recibidos:', data);
+    }
+  }
+
 }
